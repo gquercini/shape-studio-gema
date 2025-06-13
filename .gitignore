@@ -7,6 +7,9 @@
 # Logs
 *.log
 
+# Folder with latex source files
+/latex/
+
 # Eclipse files
 *.classpath
 *.project
