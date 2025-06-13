@@ -1,0 +1,38 @@
+# Java class files
+*.class
+
+# Maven target directory
+/target/
+
+# Logs
+*.log
+
+# Eclipse files
+*.classpath
+*.project
+*.settings/
+
+# IntelliJ IDEA files
+*.iml
+.idea/
+*.iws
+*.ipr
+out/
+
+# VS Code files
+.vscode/
+
+# Mac system files
+.DS_Store
+
+# JAR/WAR/EAR files
+*.jar
+*.war
+*.ear
+
+# Generated files
+gen/
+bin/
+
+# Test reports
+/test-output/
