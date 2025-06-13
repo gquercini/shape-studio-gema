@@ -42,8 +42,8 @@ public class SegmentTest {
 
         segment.setP1(new Point(0., 0.));
 
-        assertEquals(segment.getP1(), new Point(0.0, 0.0));
-        assertEquals(segment.getP2(), p2);
+        assertEquals(new Point(0.0, 0.0), segment.getP1());
+        assertEquals(p2, segment.getP2());
     }
 
     @Test(expected = InvalidShapeException.class)
@@ -70,8 +70,8 @@ public class SegmentTest {
 
         segment.setP2(new Point(0, 0));
 
-        assertEquals(segment.getP2(), new Point(0, 0));
-        assertEquals(segment.getP1(), p1);
+        assertEquals(new Point(0, 0), segment.getP2());
+        assertEquals(p1, segment.getP1());
     }
 
     @Test(expected = InvalidShapeException.class)
@@ -98,8 +98,8 @@ public class SegmentTest {
         assertEquals(5.0, segment.length(), 0.0001);
 
         // Make sure the segment is not modified by the method.
-        assertEquals(segment.getP1(), p1);
-        assertEquals(segment.getP2(), p2);
+        assertEquals(p1, segment.getP1());
+        assertEquals(p2, segment.getP2());
     }
 
     @Test
@@ -110,8 +110,8 @@ public class SegmentTest {
         assertEquals(7.0, segment.length(), 0.0001);
 
         // Make sure the segment is not modified by the method.
-        assertEquals(segment.getP1(), p1);
-        assertEquals(segment.getP2(), p2);
+        assertEquals(p1, segment.getP1());
+        assertEquals(p2, segment.getP2());
     }
 
     @Test
@@ -122,7 +122,7 @@ public class SegmentTest {
         assertEquals(5.0, segment.length(), 0.0001);
 
         // Make sure the segment is not modified by the method.
-        assertEquals(segment.getP1(), p1);
-        assertEquals(segment.getP2(), p2);
+        assertEquals(p1, segment.getP1());
+        assertEquals(p2, segment.getP2());
     }
 }

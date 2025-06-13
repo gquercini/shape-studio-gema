@@ -76,8 +76,8 @@ public class PointTest {
     public void testMove() {
         Point p = new Point(1.5, 2.5);
         p.move(3, 1);
-        assertEquals(p.getX(), 4.5, 0.0001);
-        assertEquals(p.getY(), 3.5, 0.0001);
+        assertEquals(4.5, p.getX(), 0.0001);
+        assertEquals(3.5, p.getY(), 0.0001);
     }
 
     @Test
@@ -88,9 +88,9 @@ public class PointTest {
         Point p1Copy = new Point(p1.getX(), p1.getY());
         Point p2Copy = new Point(p2.getX(), p2.getY());
 
-        assertEquals(p1.distance(p1), 0., 0.0001);
-        assertEquals(p2.distance(p2), 0., 0.0001);
-        assertEquals(p1.distance(p2), 5., 0.0001);
+        assertEquals(0., p1.distance(p1), 0.0001);
+        assertEquals(0., p2.distance(p2), 0.0001);
+        assertEquals(5., p1.distance(p2), 0.0001);
 
         // Make sure the method does not modify the input objects.
         assertEquals(p1Copy, p1);
@@ -104,13 +104,13 @@ public class PointTest {
         // Counterclockwise rotation
         Point p = new Point(2, 3);
         p.rotate(center, Math.PI / 4);
-        assertEquals(p.getX(), 1-Math.sqrt(2), 0.0001);
-        assertEquals(p.getY(), 2*Math.sqrt(2), 0.0001);
+        assertEquals(1-Math.sqrt(2), p.getX() , 0.0001);
+        assertEquals(2*Math.sqrt(2), p.getY(), 0.0001);
 
         // Clockwise rotation
         Point p1 = new Point(2, 3);
         p1.rotate(center, -Math.PI / 4);
-        assertEquals(p1.getX(), 1+ 2*Math.sqrt(2), 0.0001);
-        assertEquals(p1.getY(), Math.sqrt(2), 0.0001);
+        assertEquals(1+ 2*Math.sqrt(2), p1.getX(), 0.0001);
+        assertEquals(Math.sqrt(2), p1.getY(), 0.0001);
     }
 }

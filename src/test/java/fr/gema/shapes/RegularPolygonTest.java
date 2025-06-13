@@ -1,9 +1,10 @@
 package fr.gema.shapes;
 
 
-import fr.gema.shapes.exceptions.InvalidShapeException;
+import static org.junit.Assert.assertEquals;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import fr.gema.shapes.exceptions.InvalidShapeException;
 
 public class RegularPolygonTest {
 
@@ -44,23 +45,29 @@ public class RegularPolygonTest {
     @Test
     public void testGetVertices() throws Exception {
         RegularPolygon poly = new RegularPolygon("P5", 6, new Point(0, 0), 1.0);
+        
+        double radiusBefore = poly.getRadius();
+        int nSidesBefore = poly.getNSides();
+        Point centerBefore = poly.center();
         double rotationAngleBefore = poly.getRotationAngle();
+
+
         Point[] vertices = poly.getVertices();
         assertEquals(6, vertices.length);
-        assertEquals(vertices[0], new Point(1, 0));
+        assertEquals(new Point(1, 0), vertices[0]);
         
-        assertEquals(vertices[1], new Point(1./2., Math.sqrt(3)/2));
+        assertEquals(new Point(1./2., Math.sqrt(3)/2), vertices[1]);
         
-        assertEquals(vertices[2], new Point(-1./2., Math.sqrt(3)/2));
-        assertEquals(vertices[3], new Point(-1, 0.));
-        assertEquals(vertices[4], new Point(-1./2., -Math.sqrt(3)/2));
-        assertEquals(vertices[5], new Point(1./2., -Math.sqrt(3)/2));
+        assertEquals(new Point(-1./2., Math.sqrt(3)/2), vertices[2]);
+        assertEquals(new Point(-1, 0.), vertices[3]);
+        assertEquals(new Point(-1./2., -Math.sqrt(3)/2), vertices[4]);
+        assertEquals(new Point(1./2., -Math.sqrt(3)/2), vertices[5]);
 
         // Make sure the method does not change the object
-        assertEquals(poly.getNSides(), 6);
-        assertEquals(poly.center(), new Point(0, 0));
-        assertEquals(poly.getRadius(), 1.0, 0.0001);
-        assertEquals(poly.getRotationAngle(), rotationAngleBefore, 0.0001);
+        assertEquals(nSidesBefore, poly.getNSides());
+        assertEquals(centerBefore, poly.center());
+        assertEquals(radiusBefore, poly.getRadius(), 0.0001);
+        assertEquals(rotationAngleBefore, poly.getRotationAngle(), 0.0001);
     }
 
     @Test
@@ -82,20 +89,20 @@ public class RegularPolygonTest {
         int nSidesAfter = poly.getNSides();
         double rotationAngleAfter = poly.getRotationAngle();
 
-        assertEquals(areaAfter, Math.pow(scaleFactor, 2)* areaBefore, 0.0001);
-        assertEquals(centerAfter, centerBefore);
-        assertEquals(radiusAfter, scaleFactor*radiusBefore, 0.0001);
-        assertEquals(nSidesAfter, nSidesBefore, 0.0001);
-        assertEquals(rotationAngleAfter, rotationAngleBefore, 0.0001);
+        assertEquals(Math.pow(scaleFactor, 2)* areaBefore, areaAfter,0.0001);
+        assertEquals(centerBefore, centerAfter);
+        assertEquals(scaleFactor*radiusBefore, radiusAfter, 0.0001);
+        assertEquals(nSidesBefore, nSidesAfter, 0.0001);
+        assertEquals(rotationAngleBefore, rotationAngleAfter, 0.0001);
 
         Point[] vertices = poly.getVertices();
         assertEquals(6, vertices.length);
-        assertEquals(vertices[0], new Point(scaleFactor * 1., 0));
-        assertEquals(vertices[1], new Point(scaleFactor * 1./2., scaleFactor * Math.sqrt(3)/2));
-        assertEquals(vertices[2], new Point(scaleFactor * (-1./2.), scaleFactor * Math.sqrt(3)/2));
-        assertEquals(vertices[3], new Point(scaleFactor * (-1), 0.));
-        assertEquals(vertices[4], new Point(scaleFactor * (-1./2.), -scaleFactor * Math.sqrt(3)/2));
-        assertEquals(vertices[5], new Point(scaleFactor * (1./2.), -scaleFactor * Math.sqrt(3)/2));
+        assertEquals( new Point(scaleFactor * 1., 0), vertices[0]);
+        assertEquals(new Point(scaleFactor * 1./2., scaleFactor * Math.sqrt(3)/2), vertices[1]);
+        assertEquals(new Point(scaleFactor * (-1./2.), scaleFactor * Math.sqrt(3)/2), vertices[2]);
+        assertEquals(new Point(scaleFactor * (-1), 0.), vertices[3]);
+        assertEquals(new Point(scaleFactor * (-1./2.), -scaleFactor * Math.sqrt(3)/2), vertices[4]);
+        assertEquals(new Point(scaleFactor * (1./2.), -scaleFactor * Math.sqrt(3)/2), vertices[5]);
     }
 
     @Test(expected = IllegalArgumentException.class)
@@ -118,28 +125,28 @@ public class RegularPolygonTest {
         double rotationAngleToApply = Math.PI / 2;
         poly.rotate(rotationAngleToApply); 
 
-        assertEquals(poly.getNSides(), nSidesBefore);
-        assertEquals(poly.center(), centerBefore);
-        assertEquals(poly.getRadius(), radiusBefore, 0.0001);
-        assertEquals(poly.getRotationAngle(), rotationAngleBefore + rotationAngleToApply, 0.0001);
+        assertEquals(nSidesBefore, poly.getNSides());
+        assertEquals(centerBefore, poly.center());
+        assertEquals(radiusBefore, poly.getRadius(), 0.0001);
+        assertEquals(rotationAngleBefore + rotationAngleToApply, poly.getRotationAngle(), 0.0001);
 
         Point[] vertices = poly.getVertices();
-        assertEquals(vertices[0], new Point(0, 1));
-        assertEquals(vertices[1], new Point(-Math.sqrt(3)/2, -1./2.));
-        assertEquals(vertices[2], new Point(Math.sqrt(3)/2, -1./2.));
+        assertEquals(new Point(0, 1), vertices[0]);
+        assertEquals(new Point(-Math.sqrt(3)/2, -1./2.), vertices[1]);
+        assertEquals(new Point(Math.sqrt(3)/2, -1./2.), vertices[2]);
 
         // Apply a second rotation
         rotationAngleBefore = poly.getRotationAngle();
         poly.rotate(rotationAngleToApply); 
-        assertEquals(poly.getNSides(), nSidesBefore);
-        assertEquals(poly.center(), centerBefore);
-        assertEquals(poly.getRadius(), radiusBefore, 0.0001);
-        assertEquals(poly.getRotationAngle(), rotationAngleBefore + rotationAngleToApply, 0.0001);
+        assertEquals(nSidesBefore, poly.getNSides());
+        assertEquals(centerBefore, poly.center());
+        assertEquals(radiusBefore, poly.getRadius(), 0.0001);
+        assertEquals(rotationAngleBefore + rotationAngleToApply, poly.getRotationAngle(), 0.0001);
 
         vertices = poly.getVertices();
-        assertEquals(vertices[0], new Point(-1, 0));
-        assertEquals(vertices[1], new Point(1./2., -Math.sqrt(3)/2));
-        assertEquals(vertices[2], new Point(1./2., Math.sqrt(3)/2));
+        assertEquals(new Point(-1, 0), vertices[0]);
+        assertEquals(new Point(1./2., -Math.sqrt(3)/2), vertices[1]);
+        assertEquals(new Point(1./2., Math.sqrt(3)/2), vertices[2]);
 
     }
 
@@ -154,14 +161,12 @@ public class RegularPolygonTest {
         double radiusBefore = poly.getRadius();
         double rotationAngleBefore = poly.getRotationAngle();
 
-
         assertEquals(expected, poly.area(), 0.0001);
 
-        
-        assertEquals(poly.getNSides(), nSidesBefore);
-        assertEquals(poly.center(), centerBefore);
-        assertEquals(poly.getRadius(), radiusBefore, 0.0001);
-        assertEquals(poly.getRotationAngle(), rotationAngleBefore, 0.0001);
+        assertEquals(nSidesBefore, poly.getNSides());
+        assertEquals(centerBefore, poly.center());
+        assertEquals(radiusBefore, poly.getRadius(), 0.0001);
+        assertEquals(rotationAngleBefore, poly.getRotationAngle(), 0.0001);
     }
 
     @Test
@@ -178,10 +183,10 @@ public class RegularPolygonTest {
         double expected = 8 * sideLength;
         assertEquals(expected, poly.perimeter(), 0.0001);
 
-        assertEquals(poly.getNSides(), nSidesBefore);
-        assertEquals(poly.center(), centerBefore);
-        assertEquals(poly.getRadius(), radiusBefore, 0.0001);
-        assertEquals(poly.getRotationAngle(), rotationAngleBefore, 0.0001);
+        assertEquals(nSidesBefore, poly.getNSides());
+        assertEquals(centerBefore, poly.center());
+        assertEquals(radiusBefore, poly.getRadius(), 0.0001);
+        assertEquals(rotationAngleBefore, poly.getRotationAngle(), 0.0001);
     }
 
     @Test
@@ -196,10 +201,10 @@ public class RegularPolygonTest {
 
         assertEquals("RegularPolygon", poly.name());
 
-        assertEquals(poly.getNSides(), nSidesBefore);
-        assertEquals(poly.center(), centerBefore);
-        assertEquals(poly.getRadius(), radiusBefore, 0.0001);
-        assertEquals(poly.getRotationAngle(), rotationAngleBefore, 0.0001);
+        assertEquals(nSidesBefore, poly.getNSides());
+        assertEquals(centerBefore, poly.center());
+        assertEquals(radiusBefore, poly.getRadius(), 0.0001);
+        assertEquals(rotationAngleBefore, poly.getRotationAngle(), 0.0001);
     }
 
     @Test
@@ -214,10 +219,10 @@ public class RegularPolygonTest {
 
         assertEquals(center, poly.center());
 
-        assertEquals(poly.getNSides(), nSidesBefore);
-        assertEquals(poly.center(), centerBefore);
-        assertEquals(poly.getRadius(), radiusBefore, 0.0001);
-        assertEquals(poly.getRotationAngle(), rotationAngleBefore, 0.0001);
+        assertEquals(nSidesBefore, poly.getNSides());
+        assertEquals(centerBefore, poly.center());
+        assertEquals(radiusBefore, poly.getRadius(), 0.0001);
+        assertEquals(rotationAngleBefore, poly.getRotationAngle(), 0.0001);
     }
 
     @Test
@@ -232,9 +237,9 @@ public class RegularPolygonTest {
 
         assertEquals(new Point(4.0, 6.0), poly.center());
         
-        assertEquals(poly.getNSides(), nSidesBefore);
-        assertEquals(poly.getRadius(), radiusBefore, 0.0001);
-        assertEquals(poly.getRotationAngle(), rotationAngleBefore, 0.0001);
+        assertEquals(nSidesBefore, poly.getNSides());
+        assertEquals(radiusBefore, poly.getRadius(), 0.0001);
+        assertEquals(rotationAngleBefore, poly.getRotationAngle(), 0.0001);
     }
     
 }

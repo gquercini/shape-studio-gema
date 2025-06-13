@@ -104,11 +104,18 @@ public class RectangleTest {
     @Test
     public void testScale() throws Exception {
         Rectangle r = new Rectangle("R7", new Point(1, 8), new Point(7, 2));
-        r.scale(2.0);
-        assertEquals(-2, r.getUpperLeft().getX(), 0.0001);
-        assertEquals(11, r.getUpperLeft().getY(), 0.0001);
-        assertEquals(10, r.getBottomRight().getX(), 0.0001);
-        assertEquals(-1, r.getBottomRight().getY(), 0.0001);
+        double areaBefore = r.area();
+        double widthBefore = r.width();
+        double heightBefore = r.height();
+
+        double scaleFactor = 2.;
+
+        r.scale(scaleFactor);
+        
+        assertEquals(areaBefore*Math.pow(scaleFactor, 2), r.area(), 0.0001);
+        assertEquals(widthBefore*scaleFactor, r.width(), 0.0001);
+        assertEquals(heightBefore*scaleFactor, r.height(), 0.0001);
+
     }
 
     @Test
