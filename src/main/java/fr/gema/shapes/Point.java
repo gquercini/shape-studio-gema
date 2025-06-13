@@ -71,18 +71,7 @@ public class Point {
         return 0;
     }
 
-    /**
-     * Returns a string representation of the point in the form (X, Y).
-     * 
-     * @return a string representation of the point in the form "(X, Y)".
-     * For both X and Y, make sure to use only one decimal place (e.g., (1.0, 4.5).
-     */
-    @Override
-    public String toString() {
-        // TODO
-        return null;
-    }
-
+    
     /**
      * Moves the point by the specified deltas.
      * @param deltaX the amount to move in the X direction
@@ -100,6 +89,19 @@ public class Point {
     public void rotate(Point center, double angle) {
         // TODO
     }
+
+    /**
+     * Returns a string representation of the point in the form (X, Y).
+     * 
+     * @return a string representation of the point in the form "(X, Y)".
+     * For both X and Y, make sure to use only one decimal place (e.g., (1.0, 4.5).
+     */
+    @Override
+    public String toString() {
+        // TODO
+        return null;
+    }
+
 
     /**
      * Checks if this point is equal to another point (same coordinates).

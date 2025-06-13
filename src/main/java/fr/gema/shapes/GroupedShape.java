@@ -8,6 +8,9 @@ import java.util.List;
  */
 public class GroupedShape extends GenericShape {
 
+    /**
+     * List of the shapes composing this GroupedShape.
+     */
     private List<Shape> shapes;
 
     /**
@@ -36,13 +39,15 @@ public class GroupedShape extends GenericShape {
     }
 
     @Override
-    public void scale(double factor) {
+    public Point center() {
         // TODO
+        return null;
     }
 
     @Override
-    public void rotate(double angle) {
+    public String name() {
         // TODO
+        return null;
     }
 
     @Override
@@ -57,20 +62,19 @@ public class GroupedShape extends GenericShape {
         return 0;
     }
 
-    @Override
-    public String name() {
-        // TODO
-        return null;
-    }
-
-    @Override
-    public Point center() {
-        // TODO
-        return null;
-    }
-
+    
     @Override
     public void move(double dx, double dy) {
+        // TODO
+    }
+
+    @Override
+    public void rotate(double angle) {
+        // TODO
+    }
+
+    @Override
+    public void scale(double factor) {
         // TODO
     }
 

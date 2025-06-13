@@ -13,13 +13,30 @@ import fr.gema.shapes.exceptions.InvalidShapeException;
  */
 public class RegularPolygon extends GenericShape {
 
+    /**
+     * The number of sides of this polygon.
+     */
     private int nSides;
+
+    /**
+     * The center of this polygon.
+     */
     private Point center;
+
+    /**
+     * The radius this polygon.
+     */
     private double radius;
+
+    /**
+     * The rotation angle of this polygon.
+     */
     private double rotationAngle;
 
     /**
      * Constructs a regular polygon with the specified label, number of sides, center, and radius.
+     * 
+     * The initial rotation angle is set to 0.
      *
      * @param label  the label of the polygon
      * @param nSides the number of sides (must be at least 3)
@@ -33,6 +50,8 @@ public class RegularPolygon extends GenericShape {
 
     /**
      * Constructs a regular polygon with all properties specified.
+     * 
+     * The initial rotation angle is set to 0.
      *
      * @param label       the label of the polygon
      * @param borderWidth the border width
@@ -75,6 +94,17 @@ public class RegularPolygon extends GenericShape {
     }
 
     /**
+     * Returns the center point of the polygon.
+     *
+     * @return the center point
+     */
+    @Override
+    public Point center() {
+        // TODO
+        return null;
+    }
+
+    /**
      * Returns the current rotation angle of the polygon in radians.
      *
      * @return the rotation angle
@@ -95,25 +125,16 @@ public class RegularPolygon extends GenericShape {
     }
 
     /**
-     * Scales the polygon by the specified factor (applies to the radius).
+     * Returns the name of the shape.
      *
-     * @param factor the scaling factor (must be positive)
-     * @throws IllegalArgumentException if the factor is not positive
+     * @return the string "RegularPolygon"
      */
     @Override
-    public void scale(double factor) {
+    public String name() {
         // TODO
+        return null;
     }
 
-    /**
-     * Rotates the polygon by the specified angle (in radians).
-     *
-     * @param angle the angle in radians
-     */
-    @Override
-    public void rotate(double angle) {
-        // TODO
-    }
 
     /**
      * Returns the area of the polygon.
@@ -137,27 +158,6 @@ public class RegularPolygon extends GenericShape {
         return 0;
     }
 
-    /**
-     * Returns the name of the shape.
-     *
-     * @return the string "RegularPolygon"
-     */
-    @Override
-    public String name() {
-        // TODO
-        return null;
-    }
-
-    /**
-     * Returns the center point of the polygon.
-     *
-     * @return the center point
-     */
-    @Override
-    public Point center() {
-        // TODO
-        return null;
-    }
 
     /**
      * Moves the center of the polygon by the specified deltas.
@@ -169,6 +169,29 @@ public class RegularPolygon extends GenericShape {
     public void move(double deltaX, double deltaY) {
         // TODO
     }
+
+
+    /**
+     * Rotates the polygon by the specified angle (in radians).
+     *
+     * @param angle the angle in radians
+     */
+    @Override
+    public void rotate(double angle) {
+        // TODO
+    }
+
+    /**
+     * Scales the polygon by the specified factor (applies to the radius).
+     *
+     * @param factor the scaling factor (must be positive)
+     * @throws IllegalArgumentException if the factor is not positive
+     */
+    @Override
+    public void scale(double factor) {
+        // TODO
+    }
+
 
     /**
      * Returns a string representation of the polygon, listing its vertices.

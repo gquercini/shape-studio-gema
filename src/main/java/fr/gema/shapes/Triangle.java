@@ -31,16 +31,6 @@ public class Triangle extends GenericShape {
     }
 
     /**
-     * Returns the vertices of this triangle.
-     *
-     * @return The vertices of this triangle.
-     */
-    public Point[] getVertices() {
-        // TODO
-        return null;
-    }
-
-    /**
      * Constructs a triangle with the specified label, border properties, and
      * vertices.
      *
@@ -66,6 +56,40 @@ public class Triangle extends GenericShape {
     }
 
     /**
+     * Returns the vertices of this triangle.
+     *
+     * @return The vertices of this triangle.
+     */
+    public Point[] getVertices() {
+        // TODO
+        return null;
+    }
+
+
+    /**
+     * Returns the centroid (center) of the triangle.
+     * 
+     * @return the centroid as a Point
+     */
+    @Override
+    public Point center() {
+        // TODO
+        return null;
+    }
+
+    /**
+     * Returns the name of the shape.
+     * 
+     * @return the string "Triangle"
+     */
+    @Override
+    public String name() {
+        // TODO
+        return null;
+    }
+
+
+    /**
      * Calculates the area of the triangle using Heron's formula.
      * 
      * @return the area of the triangle
@@ -87,16 +111,7 @@ public class Triangle extends GenericShape {
         return 0;
     }
 
-    /**
-     * Returns the centroid (center) of the triangle.
-     * 
-     * @return the centroid as a Point
-     */
-    @Override
-    public Point center() {
-        // TODO
-        return null;
-    }
+    
 
     /**
      * Moves the triangle by the specified deltas.
@@ -130,17 +145,7 @@ public class Triangle extends GenericShape {
         // TODO
     }
 
-    /**
-     * Returns the name of the shape.
-     * 
-     * @return the string "Triangle"
-     */
-    @Override
-    public String name() {
-        // TODO
-        return null;
-    }
-
+    
     /**
      * Returns a string representation of the triangle as a list of its three
      * vertices.

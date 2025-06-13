@@ -14,7 +14,15 @@ import fr.gema.shapes.exceptions.InvalidShapeException;
  */
 public class Circle extends GenericShape {
 
+    
+    /**
+     * The center of this circle.
+     */
     private Point center;
+
+    /**
+     * The radius of this circle.
+     */
     private double radius;
 
     /**
@@ -63,27 +71,25 @@ public class Circle extends GenericShape {
     }
 
     /**
-     * Scales the circle's radius by the specified factor.
+     * Returns the center point of the circle.
      *
-     * @param factor the scaling factor (must be positive)
-     * @throws IllegalArgumentException if the factor is not positive
+     * @return the center point
      */
     @Override
-    public void scale(double factor) {
+    public Point center() {
         // TODO
+        return null;
     }
 
     /**
-     * Rotates the circle around its center.
-     * <p>
-     * Rotating a circle around its center has no visible effect, so this method does nothing.
-     * </p>
+     * Returns the name of the shape.
      *
-     * @param angle the angle in radians
+     * @return the string "Circle"
      */
     @Override
-    public void rotate(double angle) {
+    public String name() {
         // TODO
+        return null;
     }
 
     /**
@@ -109,28 +115,6 @@ public class Circle extends GenericShape {
     }
 
     /**
-     * Returns the name of the shape.
-     *
-     * @return the string "Circle"
-     */
-    @Override
-    public String name() {
-        // TODO
-        return null;
-    }
-
-    /**
-     * Returns the center point of the circle.
-     *
-     * @return the center point
-     */
-    @Override
-    public Point center() {
-        // TODO
-        return null;
-    }
-
-    /**
      * Moves the center of the circle by the specified deltas.
      *
      * @param deltaX the amount to move in the X direction
@@ -141,6 +125,31 @@ public class Circle extends GenericShape {
         // TODO
     }
 
+    /**
+     * Rotates the circle around its center.
+     * <p>
+     * Rotating a circle around its center has no visible effect, so this method does nothing.
+     * </p>
+     *
+     * @param angle the angle in radians
+     */
+    @Override
+    public void rotate(double angle) {
+        // TODO
+    }
+
+
+    /**
+     * Scales the circle's radius by the specified factor.
+     *
+     * @param factor the scaling factor (must be positive)
+     * @throws IllegalArgumentException if the factor is not positive
+     */
+    @Override
+    public void scale(double factor) {
+        // TODO
+    }
+    
     /**
      * Returns a string representation of the circle.
      *
